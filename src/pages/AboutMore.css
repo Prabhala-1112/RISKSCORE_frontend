@@ -1,0 +1,71 @@
+/* Expanded About Page Styles */
+.method-intro {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    line-height: 1.7;
+}
+
+.vector-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.vector-item {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    padding: 2rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.vector-item:last-child {
+    border-bottom: none;
+}
+
+.vector-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.vector-num {
+    font-size: 4rem;
+    font-weight: 700;
+    color: rgba(59, 130, 246, 0.1);
+    line-height: 1;
+}
+
+.vector-header h3 {
+    font-size: 1.8rem;
+    color: var(--text-main);
+}
+
+.vector-content h4 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.vector-content p {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .vector-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .vector-num {
+        font-size: 3rem;
+    }
+}

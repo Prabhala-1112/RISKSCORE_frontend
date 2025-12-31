@@ -1,0 +1,60 @@
+/* Why Matters Section */
+.why-matters {
+    padding: 6rem 1.5rem;
+}
+
+.why-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.why-header h2 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.why-header p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.info-card {
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary);
+    opacity: 0.5;
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-main);
+}
+
+.info-card p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.info-card strong {
+    color: var(--primary);
+    font-weight: 600;
+}

@@ -1,0 +1,114 @@
+.contact-page {
+    padding-top: 6rem;
+    min-height: 90vh;
+}
+
+.contact-card {
+    max-width: 500px;
+    width: 100%;
+    padding: 3rem;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.contact-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.contact-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-header p {
+    color: var(--text-muted);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.8rem;
+    color: var(--text-main);
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.btn-send {
+    background: var(--primary);
+    color: white;
+    padding: 0.8rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: filter 0.2s;
+}
+
+.btn-send:hover {
+    filter: brightness(1.1);
+}
+
+.success-msg {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-reset {
+    margin-top: 1.5rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-full);
+    color: var(--text-muted);
+}
+
+.btn-reset:hover {
+    border-color: var(--text-main);
+    color: var(--text-main);
+}

@@ -1,0 +1,52 @@
+.faq-page {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+    max-width: 800px;
+}
+
+.faq-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.faq-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.faq-header p {
+    color: var(--text-muted);
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faq-item {
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.faq-answer {
+    overflow: hidden;
+}
+
+.faq-answer p {
+    padding-top: 1rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}

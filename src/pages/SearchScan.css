@@ -1,0 +1,122 @@
+.search-page {
+    min-height: 80vh;
+    padding-top: 4rem;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.search-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.search-subtitle {
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+}
+
+.search-box-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-input-group {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.search-icon {
+    color: var(--text-muted);
+    margin-right: 1rem;
+}
+
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    outline: none;
+    padding: 0.5rem 0;
+}
+
+.search-input::placeholder {
+    color: #64748b;
+}
+
+.btn-scan {
+    background: var(--secondary);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    margin-left: 0.5rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.btn-scan:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+.btn-scan:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.suggestions-dropdown {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    z-index: 50;
+    overflow: hidden;
+}
+
+.suggestion-item {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background 0.1s;
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+.suggestion-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.error-msg {
+    color: var(--danger);
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
