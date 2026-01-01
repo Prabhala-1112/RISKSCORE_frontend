@@ -23,7 +23,7 @@ const Enterprise = () => {
                         Integrate our Risk Scoring API directly into your MDM or procurement workflows.
                     </p>
                     <div className="ent-actions">
-                        <button className="btn-primary large" onClick={() => navigate('/contact')}>Contact Sales</button>
+                        <button className="btn-primary large" onClick={() => navigate('/sales')}>Contact Sales</button>
                         <button className="btn-secondary large">View API Docs</button>
                     </div>
                 </div>

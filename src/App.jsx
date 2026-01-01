@@ -5,6 +5,7 @@ import SearchScan from './pages/SearchScan';
 import Report from './pages/Report';
 import About from './pages/About';
 import Enterprise from './pages/Enterprise';
+import Sales from './pages/Sales';
 import Resources from './pages/Resources';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
@@ -27,6 +28,7 @@ function App() {
             <Route path="/report" element={<Report />} />
             <Route path="/about" element={<About />} />
             <Route path="/enterprise" element={<Enterprise />} />
+            <Route path="/sales" element={<Sales />} />
             <Route path="/how-it-works" element={<About />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
