@@ -36,41 +36,6 @@ const Report = () => {
 
     const finalScore = Math.round(score.finalRiskScore);
 
-    const getAppKnowledge = (name) => {
-        const lower = name.toLowerCase();
-        if (lower.includes('tiktok') || lower.includes('musical.ly')) {
-            return {
-                owner: "ByteDance Ltd.",
-                jurisdiction: "China (National Intelligence Law)",
-                model: "Ad-Targeted & Behavioral Profiling",
-                sharing: "High (Affiliate Networks)"
-            };
-        } else if (lower.includes('facebook') || lower.includes('meta') || lower.includes('instagram') || lower.includes('whatsapp')) {
-            return {
-                owner: "Meta Platforms, Inc.",
-                jurisdiction: "USA (Five Eyes Alliance)",
-                model: "Surveillance Capitalism / Ads",
-                sharing: "High (Cross-App Tracking)"
-            };
-        } else if (lower.includes('google') || lower.includes('youtube')) {
-            return {
-                owner: "Alphabet Inc.",
-                jurisdiction: "USA (Five Eyes Alliance)",
-                model: "Ad-Exchange Ecosystem",
-                sharing: "Moderate (Internal Ecosystem)"
-            };
-        } else {
-            return {
-                owner: "Unknown Entity",
-                jurisdiction: "Unspecified Region",
-                model: "Mixed (Ads/In-App Purchases)",
-                sharing: "Likely with Ad Networks"
-            };
-        }
-    };
-
-    const appKnowledge = getAppKnowledge(score.target);
-
     return (
         <div className="report-page container">
             <motion.div
@@ -158,7 +123,7 @@ const Report = () => {
                 </motion.div>
             </div>
 
-            {/* NEW: App Intelligence Section */}
+            {/* NEW: App Context Section provided by Backend */}
             <motion.div
                 className="intelligence-section glass-panel"
                 initial={{ opacity: 0, y: 20 }}
@@ -166,27 +131,15 @@ const Report = () => {
                 transition={{ delay: 0.4 }}
             >
                 <h3>App Intelligence & Context</h3>
-                <div className="intel-grid">
-                    <div className="intel-item">
-                        <h4>Corporate Ownership</h4>
-                        <p>{appKnowledge.owner}</p>
-                        <span className="intel-sub">Parent Company</span>
-                    </div>
-                    <div className="intel-item">
-                        <h4>Jurisdiction</h4>
-                        <p>{appKnowledge.jurisdiction}</p>
-                        <span className="intel-sub">Legal Accountability</span>
-                    </div>
-                    <div className="intel-item">
-                        <h4>Business Model</h4>
-                        <p>{appKnowledge.model}</p>
-                        <span className="intel-sub">Revenue Source</span>
-                    </div>
-                    <div className="intel-item">
-                        <h4>Data Sharing</h4>
-                        <p>{appKnowledge.sharing}</p>
-                        <span className="intel-sub">3rd Party Partners</span>
-                    </div>
+
+                <div style={{ marginBottom: '1.5rem' }}>
+                    <h4 style={{ color: '#e2e8f0', marginBottom: '0.5rem' }}>Description</h4>
+                    <p style={{ color: '#94a3b8', lineHeight: '1.6' }}>{score.description || "No description available."}</p>
+                </div>
+
+                <div>
+                    <h4 style={{ color: '#e2e8f0', marginBottom: '0.5rem' }}>History & Background</h4>
+                    <p style={{ color: '#94a3b8', lineHeight: '1.6' }}>{score.history || "No historical data available."}</p>
                 </div>
             </motion.div>
 
@@ -197,12 +150,12 @@ const Report = () => {
                         <div className="rec-item warning" style={{ flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
                             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
                                 <AlertTriangle className="text-warning" />
-                                <h4>High Privacy Risk Detected</h4>
+                                <h4 style={{ margin: 0 }}>High Privacy Risk Detected</h4>
                             </div>
-                            <p>This app collects significant user data. We recommend switching to a privacy-focused alternative.</p>
+                            <p style={{ margin: 0 }}>This app collects significant user data. We recommend switching to a privacy-focused alternative.</p>
                             <button
                                 className="btn-primary"
-                                style={{ background: '#f59e0b', color: '#000' }}
+                                style={{ background: '#f59e0b', color: '#000', marginTop: '0.5rem' }}
                                 onClick={() => navigate('/alternatives', { state: { target: score.target, score } })}
                             >
                                 View Safer Alternatives
