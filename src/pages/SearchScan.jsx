@@ -18,8 +18,7 @@ const SearchScan = () => {
                 return;
             }
             try {
-                const res = await axios.get(`http://localhost:8091/api/scan/suggestions?query=${query}`);
-                setSuggestions(res.data);
+                const res = await axios.get(`/api/scan/suggestions?query=${query}`);
             } catch (err) {
                 console.error("Error fetching suggestions", err);
             }
@@ -42,7 +41,7 @@ const SearchScan = () => {
         }
 
         try {
-            const res = await axios.post('http://localhost:8091/api/scan/analyze', { target: scanTarget });
+            const res = await axios.post('/api/scan/analyze', { target: scanTarget });
             navigate('/report', { state: { score: res.data } });
         } catch (err) {
             setError("Analysis failed. Please try again.");
