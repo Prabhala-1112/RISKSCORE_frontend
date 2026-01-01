@@ -44,7 +44,21 @@ const SearchScan = () => {
             const res = await axios.post('/api/scan/analyze', { target: scanTarget });
             navigate('/report', { state: { score: res.data } });
         } catch (err) {
-            setError("Analysis failed. Please try again.");
+            console.error(err);
+            if (err.response && err.response.status === 404) {
+                // If app not found, try to fetch suggestions to show "Did you mean?"
+                setError(`App "${scanTarget}" not found in our database.`);
+
+                // Fetch suggestions manually to show alternatives
+                try {
+                    const suggRes = await axios.get(`/api/scan/suggestions?query=${scanTarget}`);
+                    if (suggRes.data && suggRes.data.length > 0) {
+                        setSuggestions(suggRes.data);
+                    }
+                } catch (ignore) { }
+            } else {
+                setError("Analysis failed. Please try again.");
+            }
             setLoading(false);
         }
     };
