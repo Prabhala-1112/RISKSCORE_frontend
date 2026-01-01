@@ -34,19 +34,19 @@ const Alternatives = () => {
         const lower = appName.toLowerCase();
         if (lower.includes('facebook') || lower.includes('instagram') || lower.includes('tiktok')) {
             return [
-                { name: 'Signal', desc: 'End-to-end encrypted messaging with no tracking.', reason: 'No metadata collection' },
-                { name: 'Mastodon', desc: 'Decentralized social network with no algorithm.', reason: 'Open source & Ad-free' }
+                { name: 'Signal', desc: 'End-to-end encrypted messaging with no tracking.', reason: 'No metadata collection', link: 'https://signal.org/download/' },
+                { name: 'Mastodon', desc: 'Decentralized social network with no algorithm.', reason: 'Open source & Ad-free', link: 'https://joinmastodon.org/apps' }
             ];
         } else if (lower.includes('google') || lower.includes('chrome')) {
             return [
-                { name: 'DuckDuckGo', desc: 'Search engine that doesn\'t track you.', reason: 'Private search' },
-                { name: 'Firefox', desc: 'Browser blocked trackers by default.', reason: 'Enhanced privacy features' }
+                { name: 'DuckDuckGo', desc: 'Search engine that doesn\'t track you.', reason: 'Private search', link: 'https://duckduckgo.com/app' },
+                { name: 'Firefox', desc: 'Browser blocked trackers by default.', reason: 'Enhanced privacy features', link: 'https://www.mozilla.org/en-US/firefox/new/' }
             ];
         } else {
             // Generic safe apps
             return [
-                { name: 'ProtonMail', desc: 'Encrypted email service based in Switzerland.', reason: 'Zero-access encryption' },
-                { name: 'Brave Browser', desc: 'Blocks ads and trackers automatically.', reason: 'Built-in protection' }
+                { name: 'ProtonMail', desc: 'Encrypted email service based in Switzerland.', reason: 'Zero-access encryption', link: 'https://proton.me/mail/download' },
+                { name: 'Brave Browser', desc: 'Blocks ads and trackers automatically.', reason: 'Built-in protection', link: 'https://brave.com/download/' }
             ];
         }
     };
@@ -78,7 +78,9 @@ const Alternatives = () => {
                         </div>
                         <div className="alt-reason">{alt.reason}</div>
                         <p>{alt.desc}</p>
-                        <button className="btn-get">Get App <ArrowRight size={16} /></button>
+                        <a href={alt.link} target="_blank" rel="noopener noreferrer" className="btn-get" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                            Get App <ArrowRight size={16} />
+                        </a>
                     </motion.div>
                 ))}
             </div>
