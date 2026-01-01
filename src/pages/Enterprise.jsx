@@ -3,7 +3,11 @@ import { Building2, ChartBar, Lock, Zap, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './Enterprise.css';
 
+import { useNavigate } from 'react-router-dom';
+
 const Enterprise = () => {
+    const navigate = useNavigate();
+
     return (
         <div className="enterprise-page container">
             <section className="ent-hero">
@@ -19,7 +23,7 @@ const Enterprise = () => {
                         Integrate our Risk Scoring API directly into your MDM or procurement workflows.
                     </p>
                     <div className="ent-actions">
-                        <button className="btn-primary large">Contact Sales</button>
+                        <button className="btn-primary large" onClick={() => navigate('/contact')}>Contact Sales</button>
                         <button className="btn-secondary large">View API Docs</button>
                     </div>
                 </div>
