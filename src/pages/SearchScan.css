@@ -4,31 +4,30 @@
 }
 
 /* Main Layout Grid */
+/* Main Layout Grid */
 .search-layout {
     display: flex;
+    flex-direction: row;
+    /* Explicitly horizontal */
     justify-content: center;
     align-items: flex-start;
-    /* Aligns search box and sidebar at top */
-    gap: 3rem;
+    /* Align tops */
+    gap: 2rem;
+    /* Gap between search column and suggestions */
     width: 100%;
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
-    z-index: 1;
+    padding: 0 2rem;
 }
 
 .search-main {
-    flex: 1;
-    max-width: 600px;
-    width: 100%;
+    flex: 2;
+    /* Main search + error takes 2x space */
+    max-width: 650px;
+    /* Cap width so it doesn't stretch too wide */
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    /* Left align for professional look, or center if preferred. The search box max-width handles it */
-}
-
-/* Ensure centering on the visual page though */
-.search-main {
     align-items: center;
 }
 
@@ -37,17 +36,20 @@
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
+    text-align: center;
 }
 
 .search-subtitle {
     color: var(--text-muted);
     margin-bottom: 2.5rem;
+    text-align: center;
 }
 
 .search-box-wrapper {
     position: relative;
     width: 100%;
     max-width: 600px;
+    /* Slightly narrower than parent to center nicely */
 }
 
 .search-input-group {
@@ -100,8 +102,12 @@
 
 /* Suggestions Sidebar */
 .suggestions-column {
-    width: 300px;
-    margin-top: 1rem;
+    flex: 1;
+    /* Suggestion takes 1x space */
+    min-width: 280px;
+    max-width: 350px;
+    margin-top: 8rem;
+    /* IMPORTANT: Push down to align with input box, not title */
     animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
