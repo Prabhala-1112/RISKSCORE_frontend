@@ -1,0 +1,160 @@
+.api-docs-page {
+    padding-top: 6rem;
+    padding-bottom: 4rem;
+    color: var(--text-primary);
+}
+
+.docs-layout {
+    display: flex;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.docs-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 6rem;
+    height: fit-content;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-right: 1rem;
+}
+
+.docs-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.docs-nav li {
+    margin-bottom: 0.8rem;
+}
+
+.docs-nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 6px;
+}
+
+.docs-nav a:hover,
+.docs-nav a.active {
+    color: var(--cyan-400);
+    background: rgba(34, 211, 238, 0.1);
+}
+
+.docs-content {
+    flex-grow: 1;
+    max-width: 800px;
+}
+
+.docs-section {
+    margin-bottom: 4rem;
+}
+
+.docs-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, #a5f3fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.docs-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.docs-section h3 {
+    font-size: 1.2rem;
+    margin: 2rem 0 1rem;
+    color: var(--cyan-400);
+}
+
+.endpoint-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-right: 0.8rem;
+}
+
+.endpoint-badge.post {
+    background: rgba(34, 211, 238, 0.2);
+    color: #22d3ee;
+    border: 1px solid rgba(34, 211, 238, 0.3);
+}
+
+.endpoint-badge.get {
+    background: rgba(16, 185, 129, 0.2);
+    color: #34d399;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.code-block {
+    background: #1e293b;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 1rem 0;
+}
+
+.code-block pre {
+    margin: 0;
+    color: #e2e8f0;
+}
+
+.param-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.param-table th,
+.param-table td {
+    text-align: left;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.param-table th {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.param-table td {
+    color: var(--text-primary);
+}
+
+.type-badge {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: #f472b6;
+    background: rgba(244, 114, 182, 0.1);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .docs-layout {
+        flex-direction: column;
+    }
+
+    .docs-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 1rem;
+    }
+}

@@ -24,7 +24,7 @@ const Enterprise = () => {
                     </p>
                     <div className="ent-actions">
                         <button className="btn-primary large" onClick={() => navigate('/sales')}>Contact Sales</button>
-                        <button className="btn-secondary large">View API Docs</button>
+                        <button className="btn-secondary large" onClick={() => navigate('/api-docs')}>View API Docs</button>
                     </div>
                 </div>
                 <div className="ent-visual glass-panel">
