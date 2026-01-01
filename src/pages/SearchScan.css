@@ -3,13 +3,36 @@
     padding-top: 4rem;
 }
 
-.search-container {
+/* Main Layout Grid */
+.search-layout {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    /* Aligns search box and sidebar at top */
+    gap: 3rem;
     width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
+.search-main {
+    flex: 1;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* Left align for professional look, or center if preferred. The search box max-width handles it */
+}
+
+/* Ensure centering on the visual page though */
+.search-main {
+    align-items: center;
+}
+
+/* Restored Search Components */
 .search-title {
     font-size: 2.5rem;
     font-weight: 700;
@@ -75,36 +98,107 @@
     cursor: not-allowed;
 }
 
-.suggestions-dropdown {
-    position: absolute;
-    top: 110%;
-    left: 0;
-    right: 0;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    z-index: 50;
-    overflow: hidden;
+/* Suggestions Sidebar */
+.suggestions-column {
+    width: 300px;
+    margin-top: 1rem;
+    animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.suggestions-panel {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.suggestions-panel h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
 }
 
 .suggestion-item {
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1rem;
     cursor: pointer;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    transition: background 0.1s;
-}
-
-.suggestion-item:last-child {
-    border-bottom: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
 }
 
 .suggestion-item:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(16, 185, 129, 0.1);
+    /* Subtle green tint */
+    border-color: rgba(16, 185, 129, 0.3);
+    transform: translateX(4px);
 }
 
 .error-msg {
-    color: var(--danger);
+    width: 100%;
+    text-align: center;
     margin-top: 1rem;
-    font-weight: 500;
+    border-radius: 8px;
+    animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes shake {
+
+    10%,
+    90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .search-layout {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .suggestions-column {
+        width: 100%;
+        max-width: 600px;
+    }
 }
 
 .spin {

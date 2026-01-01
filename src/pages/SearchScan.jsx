@@ -65,49 +65,61 @@ const SearchScan = () => {
 
     return (
         <div className="search-page flex-center">
-            <div className="container search-container">
-                <h2 className="search-title">Check Privacy Risk</h2>
-                <p className="search-subtitle">Enter an app name or website URL to analyze instantly.</p>
+            <div className="container search-layout">
+                <div className="search-main">
+                    <h2 className="search-title">Check Privacy Risk</h2>
+                    <p className="search-subtitle">Enter an app name or website URL to analyze instantly.</p>
 
-                <div className="search-box-wrapper">
-                    <div className="search-input-group glass-panel">
-                        <Search className="search-icon" />
-                        <input
-                            type="text"
-                            className="search-input"
-                            placeholder="e.g. TikTok, google.com"
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                            onKeyDown={(e) => e.key === 'Enter' && handleScan()}
-                        />
-                        <button
-                            className="btn-scan"
-                            onClick={() => handleScan()}
-                            disabled={loading}
-                        >
-                            {loading ? <Loader2 className="spin" /> : 'Scan Now'}
-                        </button>
+                    <div className="search-box-wrapper">
+                        <div className="search-input-group glass-panel">
+                            <Search className="search-icon" />
+                            <input
+                                type="text"
+                                className="search-input"
+                                placeholder="e.g. TikTok, google.com"
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && handleScan()}
+                            />
+                            <button
+                                className="btn-scan"
+                                onClick={() => handleScan()}
+                                disabled={loading}
+                            >
+                                {loading ? <Loader2 className="spin" /> : 'Scan Now'}
+                            </button>
+                        </div>
                     </div>
 
-                    {suggestions.length > 0 && (
-                        <div className="suggestions-dropdown glass-panel">
-                            {suggestions.map((s) => (
-                                <div
-                                    key={s}
-                                    className="suggestion-item"
-                                    onClick={() => {
-                                        setQuery(s);
-                                        handleScan(s);
-                                    }}
-                                >
-                                    {s}
-                                </div>
-                            ))}
+                    {error && (
+                        <div className="error-msg glass-panel" style={{ padding: '1rem', display: 'inline-block', border: '1px solid #fecaca', background: '#fef2f2', color: '#b91c1c' }}>
+                            {error}
                         </div>
                     )}
                 </div>
 
-                {error && <div className="error-msg">{error}</div>}
+                {suggestions.length > 0 && (
+                    <div className="suggestions-column">
+                        <div className="suggestions-panel glass-panel">
+                            <h3>Did you mean?</h3>
+                            <div className="suggestions-list">
+                                {suggestions.map((s) => (
+                                    <div
+                                        key={s}
+                                        className="suggestion-item"
+                                        onClick={() => {
+                                            setQuery(s);
+                                            handleScan(s);
+                                        }}
+                                    >
+                                        <Search size={16} style={{ marginRight: '8px', opacity: 0.7 }} />
+                                        {s}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
